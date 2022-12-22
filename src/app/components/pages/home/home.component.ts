@@ -4,12 +4,12 @@ import { Filmes } from 'src/app/Filmes';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css'],
-  template: `
-  `
+  styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
-  featureData: any = {};
+  featureData: Filmes = {} as Filmes;
+  genres: string[] = [];
+  description: string = '';
   firstDate: any;
 
   constructor(private filmesService: FilmesService) { }
@@ -23,6 +23,16 @@ export class HomeComponent {
     let chosenInfo = await this.filmesService.getMovieInfo(chosen.id, 'tv');
     this.featureData = chosenInfo;
     this.firstDate = new Date(chosenInfo.first_air_date);
+    
+    if (chosenInfo.overview.length > 200) {
+      this.description = chosenInfo.overview.substring(0, 200) + '...';
+    } else {
+      this.description = chosenInfo.overview;
+    }
+
+    for(let i in chosenInfo.genres) {
+      this.genres.push(chosenInfo.genres[i].name)
+    }
   };
 
   ngOnInit() {

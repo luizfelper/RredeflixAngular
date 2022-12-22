@@ -12,5 +12,6 @@ export interface Filmes {
     poster_path: string;
     vote_average: number;
     vote_count: number;
+    number_of_seasons: number;
     // [key: string] : any;
 }
