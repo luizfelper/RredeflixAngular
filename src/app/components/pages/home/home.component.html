@@ -13,8 +13,8 @@ e mostrar na tela os atributos de cada item -->
                 </div>
                 <div class="featured--description">{{featureData.overview ? featureData.overview : 'Sem descrição...'}}</div>
                 <div class="featured--buttons">
-                    <!-- <a href={`/watch/${item.id}`} className="featured--watchbutton">► Assistir</a>
-                    <a href={`/list/add/${item.id}`} className="featured--mylistbutton">+ Minha lista</a> -->
+                    <a routerLink="/watch/{{featureData.id}}" class="featured--watchbutton">► Assistir</a>
+                    <a routerLink="/list/add/{{featureData.id}}" class="featured--mylistbutton">+ Minha lista</a>
                 </div>
                 <div class="featured--genres">
                     <strong>Gêneros: {{genres.join(', ')}}</strong> 
