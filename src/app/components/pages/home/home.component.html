@@ -7,17 +7,17 @@ e mostrar na tela os atributos de cada item -->
             <div class="featured--horizontal">
                 <div class="featured--name">{{featureData.name}}</div>
                 <div class="featured--info">
-                    <div class="featured--points">Pontos</div>
+                    <div class="featured--points">{{featureData.vote_average}} Pontos</div>
                     <div class="featured--year">Ano</div>
-                    <div class="featured--seasons">Temporada</div>
+                    <div class="featured--seasons">{{featureData.number_of_seasons}}Temporada</div>
                 </div>
-                <div class="featured--description">Descrição</div>
+                <div class="featured--description">{{featureData.overview}}</div>
                 <div class="featured--buttons">
                     <!-- <a href={`/watch/${item.id}`} className="featured--watchbutton">► Assistir</a>
                     <a href={`/list/add/${item.id}`} className="featured--mylistbutton">+ Minha lista</a> -->
                 </div>
                 <div class="featured--genres">
-                    <strong>Gêneros: </strong>
+                    <strong>Gêneros: </strong> 
                 </div>
             </div>
         </div>

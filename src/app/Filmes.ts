@@ -9,7 +9,7 @@ export interface Filmes {
     original_name: string;
     overview: string;
     popularity: number;
-    oster_path: string;
+    poster_path: string;
     vote_average: number;
     vote_count: number;
     // [key: string] : any;
