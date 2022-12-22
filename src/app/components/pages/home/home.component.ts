@@ -10,6 +10,7 @@ import { Filmes } from 'src/app/Filmes';
 })
 export class HomeComponent {
   featureData: any = {};
+  firstDate: any;
 
   constructor(private filmesService: FilmesService) { }
 
@@ -21,6 +22,7 @@ export class HomeComponent {
     let chosen = originals[0].items.results[randomChosen];
     let chosenInfo = await this.filmesService.getMovieInfo(chosen.id, 'tv');
     this.featureData = chosenInfo;
+    this.firstDate = new Date(chosenInfo.first_air_date);
   };
 
   ngOnInit() {
