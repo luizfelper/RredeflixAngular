@@ -2,7 +2,7 @@
 e mostrar na tela os atributos de cada item -->
 
 <div>
-    <section class="featured">
+    <section class="featured" [style.background-image]='"url(https://image.tmdb.org/t/p/original" + featureData.backdrop_path + ")"'>
         <div class="featured--vertical">
             <div class="featured--horizontal">
                 <div class="featured--name">{{featureData.name}}</div>
