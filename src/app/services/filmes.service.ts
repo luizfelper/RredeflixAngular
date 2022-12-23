@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'environments/environments';
-import { lastValueFrom } from 'rxjs';
-import { Filmes } from 'src/app/Filmes';
+import { lastValueFrom, Observable } from 'rxjs';
+import { Filmes, itemsHomeList, totalItems } from 'src/app/Filmes';
 
 @Injectable({
   providedIn: 'root'
@@ -31,14 +31,14 @@ export class FilmesService {
 //     return request;
 //   }
 
-  async basicFetch(endpoint?: string) {
+  async basicFetch(endpoint?: string): Promise<Object> {
     const request = await this.http.get(`${this.baseApiUrl}${endpoint}`);
     return await lastValueFrom(request);
   }
 
 
   
-  async getHomeList() {
+  async getHomeList(): Promise<itemsHomeList[]> {
     return [
       {
           slug: 'originals',

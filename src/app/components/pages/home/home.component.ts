@@ -10,12 +10,14 @@ export class HomeComponent {
   featureData: Filmes = {} as Filmes;
   genres: string[] = [];
   description: string = '';
+  movieList: any[] = [];
   firstDate: any;
 
   constructor(private filmesService: FilmesService) { }
 
   async loadlAll() {
     let list = await this.filmesService.getHomeList();
+    this.movieList = await this.filmesService.getHomeList();
     // Pegando o Filme em Destque e mostra na tela!!!
     let originals: any = list.filter((i: any)=>i.slug === 'originals');
     let randomChosen = Math.floor(Math.random() * (originals[0].items.results.length -1));

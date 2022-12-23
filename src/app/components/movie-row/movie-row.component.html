@@ -1,0 +1,18 @@
+<div class="movieRow" >
+    <h2>{{title}}</h2>
+
+    <div class="movieRow--left" (click)="handleLeftArrow()">
+        <p [ngStyle]="{'font-size':'50px'}">esq</p>
+    </div>
+
+    <div class="movieRow--right" (click)="handleRightArrow()">
+        <p [ngStyle]="{'font-size':'50px'}">dir</p>
+    </div>
+    <div class="movieRow--listarea">
+        <div class="movieRow--list" [ngStyle]="{'margin-left': scrollX + 'px', 'width': items.results.length * 150 + 'px'}">
+            <div *ngFor="let item of items.results" class="movieRow--item">
+                <img src="https://image.tmdb.org/t/p/w300{{item.poster_path}}" />
+            </div>
+        </div>
+    </div>
+</div>

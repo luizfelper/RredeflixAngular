@@ -2,7 +2,7 @@
 e mostrar na tela os atributos de cada item -->
 
 <div>
-    <section class="featured" [ngStyle]="{'background-position':'center', 'background-size':'cover'}" [style.background-image]='featureData.backdrop_path ? "url(https://image.tmdb.org/t/p/original" + featureData.backdrop_path + ")" : ""'>
+    <section class="featured" [style.background-image]='featureData.backdrop_path ? "url(https://image.tmdb.org/t/p/original" + featureData.backdrop_path + ")" : ""'>
         <div class="featured--vertical">
             <div class="featured--horizontal">
                 <div class="featured--name">{{featureData.name}}</div>
@@ -22,4 +22,11 @@ e mostrar na tela os atributos de cada item -->
             </div>
         </div>
     </section>
+
+    <section class="lists" >
+        <div *ngFor="let movie of movieList">
+            <!-- Passar a prop movie pra dentro desse componente -->
+            <app-movie-row [title]="movie.title" [items]="movie.items"></app-movie-row>
+        </div>
+      </section>
 </div>

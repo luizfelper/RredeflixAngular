@@ -1,6 +1,6 @@
 export interface Filmes {
     backdrop_path: string;
-    first_air_date: string;
+    first_air_date?: string;
     genre_ids: number[];
     id: number;
     name: string;
@@ -13,5 +13,17 @@ export interface Filmes {
     vote_average: number;
     vote_count: number;
     number_of_seasons: number;
-    // [key: string] : any;
+}
+
+export interface totalItems {
+    results: Filmes[];
+    page?: number;
+    total_pages?: number;
+    total_results?: number;
+}
+
+export interface itemsHomeList {
+    slug: string;
+    title: string;
+    items: Object;
 }
