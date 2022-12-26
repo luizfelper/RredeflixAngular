@@ -2,35 +2,68 @@
 e mostrar na tela os atributos de cada item -->
 
 <div>
-    <section class="featured" [style.background-image]='featureData.backdrop_path ? "url(https://image.tmdb.org/t/p/original" + featureData.backdrop_path + ")" : ""'>
-        <div class="featured--vertical">
-            <div class="featured--horizontal">
-                <div class="featured--name">{{featureData.name}}</div>
-                <div class="featured--info">
-                    <div class="featured--points">{{featureData.vote_average}} Pontos</div>
-                    <div class="featured--year">Ano {{firstDate ? firstDate.getFullYear() : ''}}</div>
-                    <div class="featured--seasons">{{featureData.number_of_seasons}} Temporada{{featureData.number_of_seasons !== 1 ? 's' : ''}}</div>
-                </div>
-                <div class="featured--description">{{featureData.overview ? description : 'Sem descrição...'}}</div>
-                <div class="featured--buttons">
-                    <a routerLink="/watch/{{featureData.id}}" class="featured--watchbutton">► Assistir</a>
-                    <a routerLink="/list/add/{{featureData.id}}" class="featured--mylistbutton">+ Minha lista</a>
-                </div>
-                <div class="featured--genres">
-                    <strong>Gêneros: {{genres.join(', ')}}</strong> 
-                </div>
-            </div>
+  <section
+    class="featured"
+    [style.background-image]="
+      featureData.backdrop_path
+        ? 'url(https://image.tmdb.org/t/p/original' +
+          featureData.backdrop_path +
+          ')'
+        : ''
+    "
+  >
+    <div class="featured--vertical">
+      <div class="featured--horizontal">
+        <div class="featured--name">{{ featureData.name }}</div>
+        <div class="featured--info">
+          <div class="featured--points">
+            {{ featureData.vote_average }} Pontos
+          </div>
+          <div class="featured--year">
+            Ano {{ firstDate ? firstDate.getFullYear() : "" }}
+          </div>
+          <div class="featured--seasons">
+            {{ featureData.number_of_seasons }} Temporada{{
+              featureData.number_of_seasons !== 1 ? "s" : ""
+            }}
+          </div>
         </div>
-    </section>
-
-    <section class="lists" >
-        <div *ngFor="let movie of movieList">
-            <!-- Passar a prop movie pra dentro desse componente -->
-            <app-movie-row [title]="movie.title" [items]="movie.items"></app-movie-row>
+        <div class="featured--description">
+          {{ featureData.overview ? description : "Sem descrição..." }}
         </div>
-      </section>
-
-      <div *ngIf="movieList.length <= 0" class="loading">
-        <img src="https://media.filmelier.com/noticias/br/2020/03/Netflix_LoadTime.gif" alt="Carregando" />
+        <div class="featured--buttons">
+          <a
+            routerLink="/watch/{{ featureData.id }}"
+            class="featured--watchbutton"
+            >► Assistir</a
+          >
+          <a
+            routerLink="/list/add/{{ featureData.id }}"
+            class="featured--mylistbutton"
+            >+ Minha lista</a
+          >
+        </div>
+        <div class="featured--genres">
+          <strong>Gêneros: {{ genres.join(", ") }}</strong>
+        </div>
       </div>
+    </div>
+  </section>
+
+  <section class="lists">
+    <div *ngFor="let movie of movieList">
+      <!-- Passar a prop movie pra dentro desse componente -->
+      <app-movie-row
+        [title]="movie.title"
+        [items]="movie.items"
+      ></app-movie-row>
+    </div>
+  </section>
+
+  <div *ngIf="movieList.length <= 0" class="loading">
+    <img
+      src="https://media.filmelier.com/noticias/br/2020/03/Netflix_LoadTime.gif"
+      alt="Carregando"
+    />
+  </div>
 </div>
